@@ -6,7 +6,7 @@ But might not make as much sense. `f` for "format". `align` is self explanatory.
 ## Overview
 `falign` is a smart and powerful formatter and parser. Anything (_almost anything_) `format` is capable of formatting may be parsed using the same format specification.  The specification we devised picks and chooses some of our favorite qualities from `sprintf`, from python's `format` and adds some of our flavor crystals.  We tossed and turned the problem over in our heads and decided to make one big assumption which is that everything be formatted (not necessarily parsed) as a string. 
 
-"Hey, why do that?", you ask. "I loose my ability to convert and format a number in hexadecimal. I loose my ability to format my dates according to some calendar on some far off planet is some galaxy far far away!"  Do you? No, you don't. No formatting library will ever be able to present the bits and pieces of your data in all of the various ways you want to format it. `falign`'s concern is formatting the whole. You know how you want to present the bits and pieces of your data. Format your `Date`s your `Number`s, your special sauce however you like. 
+"Hey, why do that?", you ask. "I loose my ability to convert and format a number in hexadecimal. I loose my ability to format my dates according to some calendar on some far off planet in some galaxy far far away!"  Do you? No, you don't. No formatting library will ever be able to present the bits and pieces of your data in all of the various ways you want to format it. `falign`'s concern is formatting the whole. You know how you want to present the bits and pieces of your data. Format your `Date`s your `Number`s, your special sauce however you like. 
 
 Are you still feeling gipped? Let's examine what you loose with most format libraries. You loose the ability:
 
@@ -45,12 +45,12 @@ format(spec:string, data:(Array|Object)) -> string
 ```
 
 #### Arguments
-**spec (string)**: the specification string to which the formatter will format
+_spec (string)_: the specification string to which the formatter will format
 
-**data (Array|Object)**: the source of data referenced in the spec. 
+_data (Array|Object)_: the source of data referenced in the spec. 
 
 #### Returns
-**(string)**: the formatted data
+_(string)_: formatted data
 
 &nbsp;
 ```
@@ -59,12 +59,12 @@ parse(spec:string, encoded:string, {
 }) -> (Array|Object)
 ```
 #### Arguments
-**spec (string)**: the specification string that describes the data encoded in `encoded`
+_spec (string)_: the specification string that describes the data encoded in _encoded_
 
-**encoded (string)**: the data as (but not necessarily) formatted by `format`
+_encoded (string)_: the data as (but not necessarily) formatted by `format`
 
-**exceptionOnMismatch (boolean)**: whether to throw an exception when `encoded` does not match the `spec`. If you set this to `false` then it will return the match up to the point at which the mismatch failed.
+_exceptionOnMismatch (boolean)_: whether to throw an exception when _encoded_ does not match the _spec_. If you set this to `false` then it will return the match up to the point at which the mismatch failed.
 
 #### Returns
-**(Array|Object)**: the result. The type depends on the paths that you use in your `spec`.
+_(Array|Object)_: the result. The type depends on the paths that you use in your `spec`.
 
