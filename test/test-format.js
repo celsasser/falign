@@ -5,7 +5,7 @@
  */
 
 const assert=require("assert");
-const format=require("../lib/format");
+const format=require("../lib").format;
 
 describe("src.format", function() {
 	it("should return spec string if no format specs are in the spec string", function() {

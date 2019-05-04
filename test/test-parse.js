@@ -5,7 +5,7 @@
  */
 
 const assert=require("assert");
-const parse=require("../lib/parse");
+const parse=require("../lib").parse;
 
 describe("src.parse", function() {
 	it("should throw error (by default) if there are literal mismatches", function() {
