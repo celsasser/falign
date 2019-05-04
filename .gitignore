@@ -10,6 +10,7 @@
 
 # eliminate IDE files that we don't use or that we simply don't want to share
 .idea
+.vscode
 
 # npm modules that will be built dynamically
 node_modules
