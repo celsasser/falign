@@ -1,17 +1,70 @@
 # falign
 
-## "falign?"
-"f" for format.
-"align" for align. 
-All will become clear.
+## A Rose by any other name might smell sweeter
+But might not make as much sense. `f` for "format". `align` is self explanatory. Stay tuned. All will become clear.
 
 ## Overview
-`falign` is a smart and powerful formatter as well as parser. Almost anything it is capable of formatting may be parsed using the same spec.  The spec picks and chooses its favorite qualites from printf, from python's format and adds some of its own flavor crystals.  It makes one big assumption which is that everything may be formatted (not necessarily parsed) as a string. "Hey, why do that", you say. "I loose my ability to format different types!"  Do you? What you loose is the ability to align:
-* align columns
-* align to a specified width
-* and parse using that very same knowledge.
-And do you really loose it? You know what your data is. If you want your bits of data to take on some particular encoding then you know better than any formatter every will. Format your `Date`s your `Number`s, your special sauce however you like. And then let this guy arrange it exactly as you like with `falign`.
+`falign` is a smart and powerful formatter and parser. Anything (_almost anything_) `format` is capable of formatting may be parsed using the same format specification.  The specification we devised picks and chooses some of our favorite qualities from `sprintf`, from python's `format` and adds some of our flavor crystals.  We tossed and turned the problem over in our heads and decided to make one big assumption which is that everything be formatted (not necessarily parsed) as a string. 
 
-## Spec
+"Hey, why do that?", you ask. "I loose my ability to convert and format a number in hexadecimal. I loose my ability to format my dates according to some calendar on some far off planet is some galaxy far far away!"  Do you? No, you don't. No formatting library will ever be able to present the bits and pieces of your data in all of the various ways you want to format it. `falign`'s concern is formatting the whole. You know how you want to present the bits and pieces of your data. Format your `Date`s your `Number`s, your special sauce however you like. 
+
+Are you still feeling gipped? Let's examine what you loose with most format libraries. You loose the ability:
+
+* align all types to either the left, right or center of a specified width.
+* align columns to the left or right or around a center.
+* parse using the very same specification you used to format your data (which is heavily dependent on alignment).
+
+Feeling better? No. Well, checkout the specification. Check out the API. Check out the examples and if you are still not happy then `sprintf` will be there for you.
+
+## Examples
+
+## Specification
+
+### format
+ * The format spec is as follows: "${[path:][pad][width][.precision]<l|r|c>}":
+ * - path: optional property path of the data in <param>data</param>. Defaults to field spec index.
+ * - pad: optional character to pad with. It may not be 1-9. And width must be included for it to be useful.
+ * - width: optional width of field in characters.
+ * - precision: optional floating point precision
+ * - l|r|c: align left, right or center
+
+### parse
+ * The format spec is as follows: "${[path:][pad][width][.precision]<l|r|c>[i|f|d][+]}"
+ * - path: optional property path of the value in the result. Defaults to field spec index.
+ * - pad: optional character field is padded with. It may not be 1-9.
+ * - width: optional width of field in characters.
+ * - precision: optional floating point precision
+ * - l|r|c: aligned left, right or center
+ * - i|f|d: optional conversion type for the field: i=integer, f=floating point, d=date. String by default.
+ * - +: optional flag which reads to end of the line. Useful for variable length fields at the end of a line.
 
 ## API
+
+```
+format(spec:string, data:(Array|Object)) -> string
+```
+
+#### Arguments
+**spec (string)**: the specification string to which the formatter will format
+
+**data (Array|Object)**: the source of data referenced in the spec. 
+
+#### Returns
+**(string)**: the formatted data
+
+&nbsp;
+```
+parse(spec:string, encoded:string, {
+	exceptionOnMismatch:boolean=true
+}) -> (Array|Object)
+```
+#### Arguments
+**spec (string)**: the specification string that describes the data encoded in `encoded`
+
+**encoded (string)**: the data as (but not necessarily) formatted by `format`
+
+**exceptionOnMismatch (boolean)**: whether to throw an exception when `encoded` does not match the `spec`. If you set this to `false` then it will return the match up to the point at which the mismatch failed.
+
+#### Returns
+**(Array|Object)**: the result. The type depends on the paths that you use in your `spec`.
+
