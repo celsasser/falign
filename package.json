@@ -1,0 +1,34 @@
+{
+	"author": {
+		"email": "curt.elsasser@yahoo.com",
+		"name": "Curt Elsasser"
+	},
+	"dependencies": {
+		"lodash": "4.17.11"
+	},
+	"description": "A format library capable of formatting and parsing whatever it is capable of formatting",
+	"devDependencies": {
+		"eslint": "5.16.0",
+		"mocha": "6.1.4",
+		"pig-quality": "1.0.0"
+	},
+	"keywords": [
+		"format",
+		"parse",
+		"printf",
+		"sprintf"
+	],
+	"license": "MIT",
+	"main": "lib/index.js",
+	"name": "falign",
+	"readme": "README.md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/celsasser/falign.git"
+	},
+	"scripts": {
+		"lint": "eslint --config ./node_modules/pig-quality/server.eslintrc.json lib/**/*.js test/unit/**/*.js",
+		"test": "mocha --recursive test/**/*.js"
+	},
+	"version": "0.0.1"
+}

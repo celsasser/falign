@@ -1,0 +1,15 @@
+# ignore the common tmp, debug, intermediate and ephemeral fellas
+*~
+*.DS_Store
+*.cache
+*.log
+*.swp
+*.tmp
+*.zip
+/log
+
+# eliminate IDE files that we don't use or that we simply don't want to share
+.idea
+
+# npm modules that will be built dynamically
+node_modules
