@@ -39,7 +39,6 @@ request: format("${left:.15l}|${center:.15c}|${right:.15r}",
 result: "leftie.........|...dead-eye....|........rightie"
 ```
 
-&nbsp;
 ### Parse alignment examples - `./examples/parse-lrc.js`
 **description**: _lrc - padding=" ", width=10, paths=default_
 ```
@@ -95,7 +94,6 @@ _data (Array|Object)_: the source of data referenced in the spec.
 #### Returns
 _(string)_: formatted data
 
-&nbsp;
 ```
 parse(spec:string, encoded:string, {
    exceptionOnMismatch:boolean=true
