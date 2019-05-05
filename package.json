@@ -29,7 +29,7 @@
 		"url": "git+https://github.com/celsasser/falign.git"
 	},
 	"scripts": {
-		"lint": "eslint --config ./node_modules/pig-quality/server.eslintrc.json lib/**/*.js test/**/*.js",
+		"lint": "eslint --config ./node_modules/pig-quality/server.eslintrc.json examples/**/*.js lib/**/*.js test/**/*.js",
 		"test": "mocha --recursive test/**/*.js"
 	},
 	"version": "1.0.0"

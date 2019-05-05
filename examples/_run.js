@@ -11,7 +11,6 @@ const falign=require("../lib");
  * @param {string} desc
  * @param {string} spec
  * @param {Array|Object} data
- * @returns {string}
  * @throws {Error}
  */
 function format(desc, spec, data) {
@@ -30,7 +29,6 @@ function format(desc, spec, data) {
  * @param {string} spec
  * @param  {string} encoded
  * @param {boolean} exceptionOnMismatch
- * @returns {Array<*>|Object}
  * @throws {Error}
  */
 function parse(desc, spec, encoded, {
