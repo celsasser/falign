@@ -162,4 +162,21 @@ describe("src.parse", function() {
 			"Google Chrome"
 		]);
 	});
+
+	describe("examples", function() {
+		it('should successfully parse: lrc - padding=" ", width=10, paths=default', function() {
+			const result=parse("${10l}|${10c}|${10r}", "left      |  center  |     right");
+			assert.deepStrictEqual(result, ["left", "center", "right"]);
+		});
+
+		it('should successfully parse: lrc - padding=".", width=15, paths=indexes', function() {
+			const result=parse("${0:.15l}|${1:.15c}|${0:.15r}", "element-0......|...element-1...|......element-0");
+			assert.deepStrictEqual(result, ["element-0", "element-1"]);
+		});
+
+		it('should successfully parse: lrc - padding=".", width=15, paths=indexes', function() {
+			const result=parse("${left:.15l}|${center:.15c}|${right:.15r}", "leftie.........|...dead-eye....|........rightie");
+			assert.deepStrictEqual(result, {"left": "leftie", "center": "dead-eye", "right": "rightie"});
+		});
+	});
 });

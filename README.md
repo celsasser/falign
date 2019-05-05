@@ -22,7 +22,7 @@ The following are all results from our [examples](./examples/.). To run the exam
 ### Format alignment examples - `./examples/format-lrc.js`
 **description**: _lrc - padding=" ", width=10, paths=default_
 ```
-request: format("${10l}|${10c}|${10r}", ["left","center","right"])
+request: format("${10l}|${10c}|${10r}", ["left", "center", "right"])
 result: "left      |  center  |     right"
 ```
 
@@ -35,7 +35,7 @@ result: "element-0......|...element-1...|......element-0"
 **description**: _lrc - padding=".", width=15, paths=object_
 ```
 request: format("${left:.15l}|${center:.15c}|${right:.15r}", 
-   {"center":"dead-eye","left":"leftie","right":"rightie"})
+   {"center": "dead-eye", "left": "leftie", "right": "rightie"})
 result: "leftie.........|...dead-eye....|........rightie"
 ```
 
@@ -44,20 +44,20 @@ result: "leftie.........|...dead-eye....|........rightie"
 **description**: _lrc - padding=" ", width=10, paths=default_
 ```
 request: parse("${10l}|${10c}|${10r}", "left      |  center  |     right")
-result: ["left","center","right"]
+result: ["left", "center", "right"]
 ```
 
 **description**: _lrc - padding=".", width=15, paths=indexes_
 ```
 request: parse("${0:.15l}|${1:.15c}|${0:.15r}", "element-0......|...element-1...|......element-0")
-result: "element-0......|...element-1...|......element-0"
+result: ["element-0", "element-1"]
 ```
 
 **description**: _lrc - padding=".", width=15, paths=object_
 ```
 request: parse("${left:.15l}|${center:.15c}|${right:.15r}", 
    "leftie.........|...dead-eye....|........rightie")
-result: "leftie.........|...dead-eye....|........rightie"
+result: {"left": "leftie", "center": "dead-eye", "right": "rightie"}
 ```
 
 ## Specification
