@@ -32,5 +32,5 @@
 		"lint": "eslint --config ./node_modules/pig-quality/server.eslintrc.json examples/**/*.js lib/**/*.js test/**/*.js",
 		"test": "mocha --recursive test/**/*.js"
 	},
-	"version": "1.0.1"
+	"version": "1.1.0"
 }
