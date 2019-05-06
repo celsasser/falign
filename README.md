@@ -1,6 +1,6 @@
 # falign
 
-## A Rose by any other name might smell sweeter
+## A rose by any other name might smell sweeter
 But might not make as much sense. `f` is for "format". `align` is self explanatory. Stay tuned. All will become clear.
 
 ## Overview
