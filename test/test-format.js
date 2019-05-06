@@ -51,10 +51,7 @@ describe("src.format", function() {
 		["${03r}", [5], "005"],
 		["${*3l}", [5], "5**"],
 		["${*3c}", [5], "*5*"],
-		["${*3r}", [5], "**5"],
-		["${6.2l}", [5.1234], "5.12  "],
-		["${6.2c}", [5.1234], " 5.12 "],
-		["${6.2r}", [5.1234], "  5.12"]
+		["${*3r}", [5], "**5"]
 	].forEach(([spec, data, expected])=>{
 		it(`should properly apply format options for spec ${spec} and ${JSON.stringify(data)}`, function() {
 			assert.strictEqual(format(spec, data), expected);
@@ -69,6 +66,13 @@ describe("src.format", function() {
 	].forEach(([spec, data, expected])=>{
 		it(`should properly format more complex configuration: spec=${spec} and data=${JSON.stringify(data)}`, function() {
 			assert.strictEqual(format(spec, data), expected);
+		});
+	});
+
+	describe("examples", function() {
+		it("should successfully format: add - padding=[none], paths=default, width=[none]", function() {
+			const result=format("${l} + ${l} = ${.1l}", [50.5, 25.25, 75.75]);
+			assert.strictEqual(result, "50.5 + 25.25 = 75.75");
 		});
 	});
 });
