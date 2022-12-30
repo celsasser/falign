@@ -9,7 +9,7 @@
 	"description": "A format library capable of formatting. And parsing whatever it is capable of formatting",
 	"devDependencies": {
 		"eslint": "5.16.0",
-		"mocha": "6.1.4",
+		"mocha": "10.2.0",
 		"pig-quality": "1.0.0"
 	},
 	"keywords": [
